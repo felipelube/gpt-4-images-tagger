@@ -53,42 +53,42 @@ export function FileUploader() {
 
   return (
     <div
-      className="bg-white rounded-2xl min-w-40 min-h-32 shadow-2xl p-8 flex flex-row gap-2 items-start transition-all"
+    {...getRootProps()}
+      className="bg-white rounded-2xl min-w-40 min-h-32 p-8 shadow-2xl flex flex-row gap-2 items-start transition-all cursor-pointer"
       style={{
         transition: "all .3s ease-in-out",
       }}
     >
       {!imageSrc && (
-        <div {...getRootProps()}>
+        <>
           <input {...getInputProps()} />
           {isDragActive ? (
             <p>Drop a photo here ...</p>
           ) : (
             <p>Drag 'n' drop a photo here, or click to select a file</p>
           )}
-        </div>
+        </>
       )}
-
       <img
         src={imageSrc as string}
-        className={`bg-slate-900 block max-w-5xl max-h-96`}
+        className={`bg-slate-900 block max-w-5xl max-h-[450px]`}
         style={{
           transition: "max-width 5s ease-out",
         }}
       />
 
       {imageSrc && (
-        <div className="flex flex-row items-baseline gap-1">
-          <p className={`text-sm ${isLoading ? "self-start" : ""}`}>Tags:</p>
+        <div className="flex flex-col items-baseline gap-1">
+          <p className={`text-sm ${isLoading ? "self-start" : ""} uppercase`}>Tags:</p>
           {isLoading ? (
             <div className="flex flex-row items-center gap-2 flex-wrap">
-              {Array.from({ length: randomIntFromInterval(2, 16) }).map(
+              {Array.from({ length: 16 }).map(
                 (_, i) => (
                   <div
                     key={i}
-                    className={`h-8 bg-slate-400 rounded animate-pulse`}
+                    className={`h-8 bg-slate-400 rounded animate-pulse uppercase`}
                     style={{
-                      width: `${randomIntFromInterval(2, 24)}rem`,
+                      width: `${randomIntFromInterval(4, 12)}rem`,
                     }}
                   ></div>
                 )

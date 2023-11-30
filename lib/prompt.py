@@ -21,16 +21,14 @@ def send_prompt(image_base64, dominant_color, pallete):
                         "text": """
                         Act as an expert image stock photographer to come with compeling tags that describe the provided
                         image, so it can have more chances to be sold in a stock images platform.
-                        Please do not provide any preamble or explanation, each one separated by a comma and wrapped by
-                        quotes.
+                        Please do not provide any preamble or explanation, just the tags, each one separated by a comma.
                         Consider that the main color of the image is: {dominant_color}.
                         Consider that the pallete of the colors of the image is: {pallete}.
-                        Return the answer as a JSON object only containing the tags as an array. No markdown, please.
                     """,
                     },
                     {"type": "image_url", "image_url": {"url": image_url}},
                 ],
-            }
+            },
         ],
         "max_tokens": 300,
     }

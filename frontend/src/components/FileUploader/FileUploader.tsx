@@ -30,9 +30,19 @@ export function FileUploader() {
         body: formData,
       });
 
-      const { tags, colors } = await res.json();
+      const {
+        choices: [
+          {
+            message: { content },
+          },
+        ],
+      } = await res.json();
+
+      const tags = content.split(",").map((tag: string) => tag.trim());
+
       setTags(tags);
     } catch (e) {
+      setTags([]);
       console.log(e);
     } finally {
       setIsLoading(false);

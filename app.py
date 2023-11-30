@@ -1,16 +1,17 @@
 from dotenv import load_dotenv
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, request, send_from_directory
 
 from lib.image_processing import get_image_details
 from lib.prompt import send_prompt
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='',
+            static_folder='static',)
 
 load_dotenv()
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return send_from_directory("static", "index.html")
 
 @app.route('/upload', methods=['POST'])
 def upload():

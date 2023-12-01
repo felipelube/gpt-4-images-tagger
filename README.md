@@ -17,4 +17,4 @@ A small app to add tags to your images using OpenAI GPT-4 with Vision
 7. Build the frontend: `npm run build`
 8. Go back to the root folder: `cd ..`
 9. Set your OPEN_AI_API_KEY environment variable in the `.env` file
-10. Run the application: `python app.py`
+10. Run the application with `python app.py`. It should be accessible at `http://localhost:5000`.

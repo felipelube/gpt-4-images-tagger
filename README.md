@@ -1,5 +1,5 @@
 # GPT-4 Images Tagger
-A small app to add tags to your images using OpenAI GPT-4 with Vision
+A small app to help add tags to your images using OpenAI GPT-4 with Vision
 
 ## Set-up
 ### Requirements
